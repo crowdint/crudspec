@@ -1,1 +1,3 @@
-require 'generators/controller_generator'
+require 'rails/generators'
+require 'generators/spec_generator'
+
