@@ -144,6 +144,7 @@ describe <%= @class_name %> do
     before(:each) do
       # Replace this with your Mock Factory, for ex: Machinist, Fabrication...
       @<%= @model_name %> = <%= @model_name.pluralize %>(:one)
+      <%= @model_name.classify %>.should_receive(:find).with(@<%= @model_name %>.id).and_return(@<%= @model_name %>)
     end
 
     it "should delete the <%= @model_name %>" do
