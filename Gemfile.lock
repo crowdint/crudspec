@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    crudspec (0.1.0)
+    crudspec (0.1.1)
       rails
       rspec
 

@@ -4,7 +4,7 @@ module Crudspec
       argument :controller_name, :type => :string, :banner => 'controller_name'
       source_root File.expand_path("../templates", __FILE__)
       desc "Create a RSpec spec for a CRUD controller"
-      class_option :devise, :desc => "Include steps to authenticate via devise", :type => :string, :banner => "devise_model"
+      class_option :devise, :desc => "Include steps to authenticate via devise", :type => :string, :banner => "devise_model", :required => false
 
       def generate_spec_file
         underscored = controller_name.underscore
