@@ -6,11 +6,11 @@ Gem::Specification.new do |s|
   s.name        = "crudspec"
   s.version     = Crudspec::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
+  s.authors     = ["David Padilla"]
+  s.email       = ["david@crowdint.com"]
   s.homepage    = "http://rubygems.org/gems/crudspec"
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Generate specs for CRUD controllers}
+  s.description = %q{Generate specs for CRUD controllers}
 
   s.add_dependency('rails', '~>3.0.0')
   s.add_development_dependency("shoulda")

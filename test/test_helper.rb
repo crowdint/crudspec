@@ -5,4 +5,3 @@ require 'shoulda'
 require 'crudspec'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-
