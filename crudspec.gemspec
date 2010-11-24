@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = %q{Generate specs for CRUD controllers}
 
   s.add_dependency('rails', '~>3.0.0')
-  #s.add_development_dependency("shoulda")
+  s.add_dependency('rspec', '~>2.0.0')
 
   s.rubyforge_project = "crudspec"
 
