@@ -8,10 +8,10 @@ module CrudSpec
     def generate
       underscored = controller_name.underscore
       underscored = underscored + '_controller' unless underscored.match(/_controller$/)
-      class_name = underscored.classify
+      @class_name = underscored.classify
       destination = File.join("tmp", "#{underscored}_spec.rb")
 
-      template('controller_spec.rb', destination)
+      template 'controller_spec.rb', destination
     end
   end
 end
