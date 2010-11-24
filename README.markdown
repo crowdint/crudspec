@@ -85,6 +85,28 @@ A controller that would work out of the box would look something like:
       end
     end
 
+## Options
+
+### Devise
+
+If you're using [devise](https://github.com/plataformatec/devise) to authenticate your users, you can easily add
+that to the spec by using the *devise* option.
+
+For example, if your Devise model is User, you can call the generator
+like this:
+
+    rails generate crudspec:spec products_controller --devise=user
+
+And this will add the following lines to the spec:
+
+    include Devise::TestHelpers
+
+    before(:each) do
+      @user = users(:one) # Replace with whatever mock Factory
+      sign_in @user
+    end
+
+
 # TODO
 
 * Option to create a test for Ruby::Test
