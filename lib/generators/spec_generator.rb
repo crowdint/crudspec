@@ -3,6 +3,7 @@ module Crudspec
     class SpecGenerator < Rails::Generators::Base
       argument :controller_name, :type => :string, :banner => 'controller_name'
       source_root File.expand_path("../templates", __FILE__)
+      desc "Create a RSpec spec for a CRUD controller"
 
       def generate_spec_file
         underscored = controller_name.underscore
