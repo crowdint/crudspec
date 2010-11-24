@@ -55,7 +55,7 @@ describe <%= @class_name %> do
 
       it "sets a flash message" do
         post :create, :<%= @model_name %> => @<%= @model_name %>.attributes
-        flash[:notice] = 'The <%= @model_name %> was created successfully'
+        flash[:notice].should == '<%= @model_name.classify %> was successfully created.'
       end
     end
 
