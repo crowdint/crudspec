@@ -1,15 +1,16 @@
 require 'test_helper'
+require 'generators/spec_generator'
 
 class SpecGeneratorTest < Rails::Generators::TestCase
-  tests Crudspec::Generators::SpecGenerator
+  tests ::Crudspec::Generators::SpecGenerator
   destination File.expand_path("../tmp", File.dirname(__FILE__))
   setup :prepare_destination
 
   test "create the controller files" do
-    Crudspec::Generators::SpecGenerator.start('admin/coupons_controller')
-    Crudspec::Generators::SpecGenerator.start('admin/discounts')
-    Crudspec::Generators::SpecGenerator.start('Admin::Products')
-    Crudspec::Generators::SpecGenerator.start('Admin::ClientsController')
+    run_generator 'admin/coupons_controller'
+    run_generator 'admin/discounts'
+    run_generator 'Admin::Products'
+    run_generator 'Admin::ClientsController'
 
     assert_file 'spec/controllers/admin/coupons_controller_spec.rb'
     assert_file 'spec/controllers/admin/discounts_controller_spec.rb'

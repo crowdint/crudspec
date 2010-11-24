@@ -87,8 +87,6 @@ A controller that would work out of the box would look something like:
 
 # TODO
 
-* Fix the tests! In theory they're properly written but they don't pass.
-  I give up.
 * Option to create a test for Ruby::Test
 * Option to create a cucumber feature
 * Option to generate Specs that work out of the box with gems like [inherited_resources](https://github.com/josevalim/inherited_resources), [resource_controller](https://github.com/jamesgolick/resource_controller)
