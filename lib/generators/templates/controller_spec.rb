@@ -53,11 +53,12 @@ describe <%= @class_name %> do
     context "The save is successful" do
       before(:each) do
         <%= @model_name.classify %>.should_receive(:new).and_return(@<%= @model_name %>)
-        @<%= @model_name %>.should_receive(:create).and_return(true)
+        @<%= @model_name %>.should_receive(:save).and_return(true)
       end
 
       it "redirects to the 'show' action" do
         post :create, :<%= @model_name %> => @<%= @model_name %>.attributes
+        response.should redirect_to(<%= @model_name %>_path(@<%= @model_name %>)) # Put the right show path here
       end
 
       it "sets a flash message" do
