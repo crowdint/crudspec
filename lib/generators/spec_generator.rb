@@ -8,6 +8,9 @@ module Crudspec
         underscored = controller_name.underscore
         underscored = underscored + '_controller' unless underscored.match(/_controller$/)
         @class_name = underscored.classify
+
+        # Really?
+        @model_name = @class_name.demodulize.match(/(.+)Controller$/)[1].underscore.singularize
         file_path = "spec/controllers/#{underscored}_spec.rb"
 
         template('controller_spec.rb', file_path)
