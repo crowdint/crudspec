@@ -39,20 +39,22 @@ describe <%= @class_name %> do
 
   describe "POST 'create'" do
     before(:each) do
-      @<%= @model_name %> = mock('<%= @model_name.classify %>')
+      @<%= @model_name %> = <%= @model_name.classify %>.new
+      @<%= @model_name %>.stub(:id).and_return(1)
     end
 
-    context "The save is succesful" do
+    context "The save is successful" do
       before(:each) do
-        @<%= @model_name %>.should_receive(:save).and_return(true)
+        <%= @model_name.classify %>.should_receive(:new).and_return(@<%= @model_name %>)
+        @<%= @model_name %>.should_receive(:create).and_return(true)
       end
 
       it "redirects to the 'show' action" do
-        post :create, :<%= @model_name %> => @<% @model_name %>.attributes
+        post :create, :<%= @model_name %> => @<%= @model_name %>.attributes
       end
 
       it "sets a flash message" do
-        post :create, :<%= @model_name %> => @<% @model_name %>.attributes
+        post :create, :<%= @model_name %> => @<%= @model_name %>.attributes
         flash[:notice] = 'The <%= @model_name %> was created successfully'
       end
     end
@@ -60,16 +62,17 @@ describe <%= @class_name %> do
     context "the save fails" do
       before(:each) do
         @<%= @model_name %>.should_receive(:save).and_return(false)
+        <%= @model_name.classify %>.should_receive(:new).and_return(@<%= @model_name %>)
       end
 
       it "renders the 'new' action" do
-        post :create, :<%= @model_name %> => @<% @model_name %>.attributes
+        post :create, :<%= @model_name %> => @<%= @model_name %>.attributes
         response.should render_template(:new)
       end
 
-      it "assigns @<%= model_name %>" do
-        post :create, :<%= @model_name %> => @<% @model_name %>.attributes
-        assigns(@<%= model_name %>).should_net be_nil
+      it "assigns @<%= @model_name %>" do
+        post :create, :<%= @model_name %> => @<%= @model_name %>.attributes
+        assigns(@<%= @model_name %>).should_not be_nil
       end
     end
   end
@@ -110,12 +113,12 @@ describe <%= @class_name %> do
 
       it "redirects to 'show' action" do
         put :update, :id => @<%= @model_name %>.id, :<%= @model_name %> => {} # Add here some attributes for the model
-        response.should redirect_to(<%= @model_name %>_path(@<%= model_name %>)) # Put the right show path here
+        response.should redirect_to(<%= @model_name %>_path(@<%= @model_name %>)) # Put the right show path here
       end
 
       it "sets a flash message" do
         put :update, :id => @<%= @model_name %>.id, :<%= @model_name %> => {} # Add here some attributes for the model
-        flash[:notice].should == 'Your <%= @model_name %> was updated successfully' # Your flash message here
+        flash[:notice].should == '<%= @model_name.classify %> was successfully updated.' # Your flash message here
       end
     end
 
@@ -130,9 +133,9 @@ describe <%= @class_name %> do
         response.should render_template(:edit)
       end
 
-      it "assigns @<%= model_name %>" do
+      it "assigns @<%= @model_name %>" do
         put :update, :id => @<%= @model_name %>.id, :<%= @model_name %> => {} # Add here some attributes for the model
-        assigns(@<%= model_name %>).should_net be_nil
+        assigns(@<%= @model_name %>).should_not be_nil
       end
     end
   end
@@ -150,12 +153,12 @@ describe <%= @class_name %> do
 
     it "should redirect to index page" do
       delete :destroy, :id => @<%= @model_name %>.id
-      response.should redirect_to(:index)
+      response.should redirect_to(:<%= @model_name.pluralize %>)
     end
 
     it "sets a flash message" do
       delete :destroy, :id => @<%= @model_name %>.id
-      flash[:notice].should == 'The <%= @model_name %> was deleted succesfully' # Your flash message here
+      flash[:notice].should == '<%= @model_name.classify %> was successfully destroyed.' # Your flash message here
     end
   end
 end
