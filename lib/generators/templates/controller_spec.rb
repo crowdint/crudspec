@@ -72,7 +72,7 @@ describe <%= @class_name %> do
 
       it "assigns @<%= @model_name %>" do
         post :create, :<%= @model_name %> => @<%= @model_name %>.attributes
-        assigns(@<%= @model_name %>).should_not be_nil
+        assigns(:<%= @model_name %>).should_not be_nil
       end
     end
   end
@@ -135,7 +135,7 @@ describe <%= @class_name %> do
 
       it "assigns @<%= @model_name %>" do
         put :update, :id => @<%= @model_name %>.id, :<%= @model_name %> => {} # Add here some attributes for the model
-        assigns(@<%= @model_name %>).should_not be_nil
+        assigns(:<%= @model_name %>).should_not be_nil
       end
     end
   end
