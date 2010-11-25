@@ -7,7 +7,7 @@ module Crudspec
       source_root File.expand_path("../templates", __FILE__)
       desc "Create a RSpec spec for a CRUD controller"
       class_option :devise, :desc => "Include steps to authenticate via devise", :type => :string, :banner => "devise_model", :required => false
-      
+
       def initialize(*args, &block)
         super
 
@@ -25,7 +25,6 @@ module Crudspec
           @controller_actions = all_actions - @controller_actions
         end
       end
-      
 
       def generate_spec_file
         underscored = controller_name.underscore
@@ -70,7 +69,6 @@ module Crudspec
       def read_template(relative_path)
         ERB.new(File.read(find_in_source_paths(relative_path)), nil, '-').result(binding)
       end
-      
     end
   end
 end

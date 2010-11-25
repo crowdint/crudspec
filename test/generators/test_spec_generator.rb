@@ -31,7 +31,5 @@ class SpecGeneratorTest < Rails::Generators::TestCase
     assert_file 'spec/controllers/admin/secrets_controller_spec.rb', /sign_in @user/
     assert_file 'spec/controllers/admin/secrets_controller_spec.rb', /include Devise::TestHelpers/
   end
-  
-  
 end
 
