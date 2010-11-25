@@ -12,11 +12,17 @@ class SpecGeneratorTest < Rails::Generators::TestCase
     run_generator %w(admin/discounts)
     run_generator %w(Admin::Products)
     run_generator %w(Admin::ClientsController)
+    run_generator %w(users index)
+    run_generator %w(products index new)
+    run_generator %w(cars index fake)
 
     assert_file 'spec/controllers/admin/coupons_controller_spec.rb'
     assert_file 'spec/controllers/admin/discounts_controller_spec.rb'
     assert_file 'spec/controllers/admin/products_controller_spec.rb'
     assert_file 'spec/controllers/admin/clients_controller_spec.rb'
+    assert_file 'spec/controllers/users_controller_spec.rb'
+    assert_file 'spec/controllers/products_controller_spec.rb'
+    assert_file 'spec/controllers/cars_controller_spec.rb'
   end
 
   test "devise option" do
@@ -25,5 +31,7 @@ class SpecGeneratorTest < Rails::Generators::TestCase
     assert_file 'spec/controllers/admin/secrets_controller_spec.rb', /sign_in @user/
     assert_file 'spec/controllers/admin/secrets_controller_spec.rb', /include Devise::TestHelpers/
   end
+  
+  
 end
 
