@@ -87,6 +87,14 @@ A controller that would work out of the box would look something like:
 
 ## Options
 
+### Specific Actions
+
+If you doesn't want to use all the actions for your spec, you can specify the one(s) you need. For example:
+
+rails generate crudspec:spec products_controller index show
+
+This will create only the actions "index" and "show". Additionally, when you use "new" a "create" action will be generated; with "edit" an "update" action will be generated, as well.
+
 ### Devise
 
 If you're using [devise](https://github.com/plataformatec/devise) to authenticate your users, you can easily add
