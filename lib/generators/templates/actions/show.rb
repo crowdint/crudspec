@@ -10,12 +10,12 @@
     end
 
     it "assigns @<%= @model_name %>" do
-      get :edit, :id => @<%= @model_name %>.id
+      get :show, :id => @<%= @model_name %>.id
       assigns(:<%= @model_name %>).should_not be_nil
     end
 
     it "renders the 'show' template" do
-      get :edit, :id => @<%= @model_name %>.id
-      response.should render_template('edit')
+      get :show, :id => @<%= @model_name %>.id
+      response.should render_template('show')
     end
   end
