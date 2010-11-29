@@ -89,11 +89,11 @@ A controller that would work out of the box would look something like:
 
 ### Specific Actions
 
-If you doesn't want to use all the actions for your spec, you can specify the one(s) you need. For example:
+If you are not using all the CRUD actions in your controller, you can specify the one(s) you need. For example:
 
-rails generate crudspec:spec products_controller index show
+    rails generate crudspec:spec products_controller index show
 
-This will create only the actions "index" and "show". Additionally, when you use "new" a "create" action will be generated; with "edit" an "update" action will be generated, as well.
+This will only create the specs for the *index* and *show* actions. Additionally, when you specify the *new* and *edit* actions, the specs for *create* and *update* will be generated as well.
 
 ### Devise
 

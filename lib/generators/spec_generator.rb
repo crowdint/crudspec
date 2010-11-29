@@ -20,10 +20,7 @@ module Crudspec
         end
 
         @controller_actions.uniq!
-
-        if @controller_actions.empty?
-          @controller_actions = all_actions - @controller_actions
-        end
+        @controller_actions = all_actions if @controller_actions.empty?
       end
 
       def generate_spec_file
@@ -38,8 +35,8 @@ module Crudspec
 
         template('controller_spec.rb', file_path)
       end
-      private
 
+      private
       def all_actions
         %w[index show new create edit update destroy]
       end
