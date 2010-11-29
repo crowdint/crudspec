@@ -85,9 +85,9 @@ A controller that would work out of the box would look something like:
       end
     end
 
-## Options
+### Options
 
-### Specific Actions
+#### Specific Actions
 
 If you are not using all the CRUD actions in your controller, you can specify the one(s) you need. For example:
 
@@ -95,7 +95,7 @@ If you are not using all the CRUD actions in your controller, you can specify th
 
 This will only create the specs for the *index* and *show* actions. Additionally, when you specify the *new* and *edit* actions, the specs for *create* and *update* will be generated as well.
 
-### Devise
+#### Devise
 
 If you're using [devise](https://github.com/plataformatec/devise) to authenticate your users, you can easily add
 that to the spec by using the *devise* option.
@@ -114,8 +114,11 @@ And this will add the following lines to the spec:
       sign_in @user
     end
 
+## CHANGELOG
 
-# TODO
+* 0.2.0 Create specs for specific actions
+
+## TODO
 
 * Option to create a test for Ruby::Test
 * Option to create a cucumber feature
@@ -124,5 +127,5 @@ And this will add the following lines to the spec:
 # About the Author
 
 [Crowd Interactive](http://www.crowdint.com) is an American web design and development company that happens to work in Colima, Mexico. 
-We specialize in building and growing online retail stores. We don’t work with everyone – just companies we believe in. Call us today to see if there’s a fit.
+We specialize in building and growing online retail stores. We don’t work with everyone, just companies we believe in. Call us today to see if there’s a fit.
 Find more info [here](http://www.crowdint.com)!
