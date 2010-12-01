@@ -4,7 +4,7 @@
       response.should be_success
     end
 
-    it "assigns @<%= @model_name %>" do
+    it "assigns @<%= @model_name.pluralize %>" do
       get :index
       assigns(:<%= @model_name.pluralize %>).should_not be_nil
     end
